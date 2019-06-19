@@ -9,7 +9,7 @@ from resources.store import Store, StoreList
 
 # Init
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db' # database is at root directory of project, we can change database type here
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db') # if no environ var, defaults to sqlite
 # Turns off Flask's in-built SQL Alchemy tracker but doesn't turn off flask_sqlalchemy tracker (which is better)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = 'secret_key'
