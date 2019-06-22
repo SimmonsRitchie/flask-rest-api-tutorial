@@ -1,5 +1,5 @@
 """
-When deploying program to Heroku or other server, use this file as entrypoint
+When deploying program to Heroku or server, use this file as entrypoint
 
 When we run the program locally, we start with app.py. In that case, we meet the __name__ == '__main__'
 condition and db is imported before app is run.
