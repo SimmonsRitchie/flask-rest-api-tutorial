@@ -1,4 +1,3 @@
-import sqlite3
 from db import db
 
 #NOTE: Model is internal representation of entity, resources are external representations
