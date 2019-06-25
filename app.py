@@ -20,7 +20,7 @@ app = Flask(__name__)
 # Cors
 # app.config['CORS_HEADERS'] = 'Content-Type'
 origins = ["*"] # this means only certain domains can access our API
-methods = ["GET","POST","DELETE","PUT"]
+methods = ["GET","POST","DELETE","PUT","OPTIONS"]
 cors = CORS(app, resources={r"/*": {"origins": origins, "methods": methods}}, headers="Content-Type")
 
 app.config['DEBUG'] = True
