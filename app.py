@@ -5,6 +5,8 @@ When running program locally, use this file as entrypoint
 from flask import Flask
 from flask_restful import Api
 from flask_jwt import JWT
+from flask_cors import CORS
+
 import os
 
 from security import authenticate, identity
@@ -14,6 +16,11 @@ from resources.store import Store, StoreList
 
 # Init
 app = Flask(__name__)
+
+# Cors
+app.config['CORS_HEADERS'] = 'Content-Type'
+origins = ["*"] # this means only certain domains can access our API
+cors = CORS(app, resources={r"/*": {"origins": origins}})
 
 app.config['DEBUG'] = True
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL', 'sqlite:///data.db') # if no environ var, defaults to sqlite
